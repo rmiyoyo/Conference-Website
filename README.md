@@ -205,7 +205,7 @@ I would like to thank my code reviewers at Microverse for helping me with pull r
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./LICENSE) licensed. </br>
 Original design idea by [Cindy Shin](https://www.behance.net/adagio07) in Behance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
