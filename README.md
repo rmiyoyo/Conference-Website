@@ -42,10 +42,10 @@ The website is designed with a modern, clean, and intuitive user interface to en
 Join us at the ***InnovationX Africa Summit*** and be a part of shaping the future of tech in Africa!
 
 ## 🛠 Built With <a name="built-with"></a>
-1- HTML.
-2- CSS.
-3- JavaScript
-4- LINTERS.
+- HTML.
+- CSS.
+- JavaScript
+- LINTERS.
 
 ### Tech Stack <a name="tech-stack"></a>
 
@@ -61,9 +61,9 @@ Join us at the ***InnovationX Africa Summit*** and be a part of shaping the futu
 
 ### Key Features <a name="key-features"></a>
 
-- **A conference website with enhanced look.**
-- **linters**
-- **Projects page**
+- **A responsible conference website with enhanced look.**
+- **Customized for both mobile and desktop devices.**
+- **Navigation and Animations**
 
 <!-- ![Screenshot](./images/Screenshot%202.png) -->
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
