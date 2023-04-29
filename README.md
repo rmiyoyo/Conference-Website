@@ -72,7 +72,7 @@ Join us at the ***InnovationX Africa Summit*** and be a part of shaping the futu
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- You can find the website [here]()
+- You can find the website [here](https://rmiyoyo.github.io/capstone-conference-page/)
 - You can find the video presentation of this website [here]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
