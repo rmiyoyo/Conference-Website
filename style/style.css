@@ -24,7 +24,7 @@
   left: -100%;
 }
 
-nav {
+.toggle-menu {
   background-color: var(--dark);
   display: flex;
   gap: 10px;
@@ -41,15 +41,15 @@ nav {
   z-index: 5;
 }
 
-nav .campaign a,
-nav .nav-links li a,
+.toggle-menu .campaign a,
+.toggle-menu .nav-links li a,
 .nav-links i {
   text-decoration: none;
   color: #fff;
   font-size: 25px;
 }
 
-nav .campaign li {
+.toggle-menu .campaign li {
   text-decoration: none;
   list-style-type: none;
   display: flex;
@@ -66,7 +66,7 @@ nav .campaign li {
   color: var(--secondary);
 }
 
-nav .nav-links ul {
+.toggle-menu .nav-links ul {
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -509,13 +509,13 @@ nav .nav-links ul {
 }
 
 @media only screen and (min-width: 768px) {
-  nav,
+  .toggle-menu,
   #toggle {
     display: none;
   }
 
   .top-navigation,
-  nav {
+  .toggle-menu {
     background-color: var(--dark);
     position: static;
   }
