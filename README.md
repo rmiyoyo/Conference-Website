@@ -72,8 +72,8 @@ Join us at the ***InnovationX Africa Summit*** and be a part of shaping the futu
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- You can find the website [here]()
-- You can find the video presentation of this website [here]()
+- You can find the website [here](https://rmiyoyo.github.io/capstone-conference-page/)
+- You can find the video presentation of this website [here](https://www.loom.com/share/d72492177d00414bbde0ed97b0826850)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -197,7 +197,8 @@ If you like this project, create a pull request or hit me up on [Twitter](https:
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank my code reviewers at Microverse for helping me with pull requests and merges.
+- I acknowledge and thank the author of the original idea of this design, [Cindy Shin](https://www.behance.net/adagio07) in Behance.
+- I used this under the [Creative Commons License](https://creativecommons.org/licenses/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -205,7 +206,7 @@ I would like to thank my code reviewers at Microverse for helping me with pull r
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed. </br>
-Original design idea by [Cindy Shin](https://www.behance.net/adagio07) in Behance.
+- This project is [MIT](./LICENSE) licensed. </br>
+- Design used under [Creative Commons License](https://creativecommons.org/licenses/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
