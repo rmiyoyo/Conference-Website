@@ -1,4 +1,4 @@
-# First Capstone Project: InnovationX Africa Summit
+# InnovationX Africa Summit
 <a name="readme-top"></a>
 
 <div align="center">
@@ -31,7 +31,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Capstone Conference Page <a name="about-project"></a>
+# 📖 Conference Page <a name="about-project"></a>
 
 The ***InnovationX Africa Summit*** is a tech-focused conference aimed at fostering innovation, collaboration, and growth in the African tech industry. Our goal is to bring together entrepreneurs, developers, investors, and thought leaders to share knowledge, network, and explore new opportunities.
 
@@ -97,7 +97,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone git@github.com:rmiyoyo/capstone-conference-page.git
+  git clone git@github.com:rmiyoyo/Conference-Website.git
 ```
 
 ### Install
@@ -105,7 +105,7 @@ Clone this repository to your desired folder:
 Install the prerequisites this project using:
 
 ```sh
-  cd capstone-conference-page
+  cd Conference-Website
   npm init -y
   npm install --save-dev hint@7.x
   npm install --save-dev stylelint@13.x stylelint-scss@3.x stylelint-config-standard@21.x stylelint-csstree-validator@1.x
