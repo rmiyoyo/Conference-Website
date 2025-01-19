@@ -118,6 +118,7 @@
   text-transform: uppercase;
   text-align: center;
   font-weight: 900;
+  background-clip: text;
   -webkit-background-clip: text;
   background-image: url(../images/background/hdr.jpeg);
   background-repeat: no-repeat;
@@ -592,6 +593,7 @@
     font-size: 60px;
     text-transform: uppercase;
     font-weight: 900;
+    background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     background-image: url(../images/background/hdr.jpeg);
