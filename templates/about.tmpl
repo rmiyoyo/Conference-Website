@@ -1,0 +1,28 @@
+{{define "content"}}<section class="hero about-hero" aria-labelledby="title">
+  <div class="wrap">
+    <p class="tagline">About the summit</p>
+    <h1 id="title">{{.Event.Name}} {{.Event.Year}}</h1>
+    <p class="lead">InnovationX Summit Africa is a yearly conference on innovation in Africa. It brings together founders, investors, researchers and people in government to share what is working and what is not. The aim is to speed up innovation on the continent by putting people with ideas in the same room as the people and resources that can help them.</p>
+    <p class="contact">Questions about the {{.Event.Year}} summit? Email <a href="mailto:{{.Event.Email}}">{{.Event.Email}}</a>.</p>
+  </div>
+</section>
+
+<section class="logo-story" aria-labelledby="logo-title">
+  <div class="wrap narrow">
+    <h2 id="logo-title">The logo</h2>
+    <p>The logo was drawn by a team of graphic designers who took their cue from the colours and patterns of African textiles and art. It stands for the many innovators the summit brings together, and the work they do with each other.</p>
+    <img src="images/logos/CSi.png" alt="InnovationX Summit logo" width="351" height="160">
+  </div>
+</section>
+
+<section class="past" aria-labelledby="past-title">
+  <div class="wrap narrow">
+    <h2 id="past-title">Past summits</h2>
+    <p>The two summits before this one were held in Warsaw and in Buenos Aires.</p>
+    <div class="past-list">
+      <img src="images/summit/1.png" alt="Summit 2011 in Warsaw" width="340" height="186" loading="lazy">
+      <img src="images/summit/2.png" alt="Summit 2013 in Buenos Aires" width="340" height="186" loading="lazy">
+    </div>
+  </div>
+</section>
+{{end}}

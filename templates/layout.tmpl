@@ -1,0 +1,52 @@
+{{define "layout"}}<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{with .Page.Title}}{{.}}: {{end}}{{.Event.Name}} {{.Event.Year}}</title>
+<meta name="description" content="{{.Event.Name}}, {{.Event.Dates}}, at the {{.Venue.Name}} in Nairobi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;display=swap">
+<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html"><span class="mark">X!</span> {{.Event.Short}}</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" hidden>Menu</button>
+    <nav id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="about_page.html"{{if eq .Page.Current "about"}} aria-current="page"{{end}}>About</a></li>
+        <li><a href="index.html#program">Program</a></li>
+        <li><a href="index.html#speakers">Speakers</a></li>
+        <li><a href="index.html#venue">Venue</a></li>
+        <li><a href="index.html#partners">Partners</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+{{template "content" .}}
+</main>
+<section class="partners" id="partners" aria-labelledby="partners-title">
+  <div class="wrap">
+    <h2 id="partners-title">Partners</h2>
+    <ul class="partner-list">
+      {{- range .Event.Partners}}
+      <li><img src="{{.Logo}}" alt="{{.Name}}" width="120" height="60" loading="lazy"></li>
+      {{- end}}
+    </ul>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span class="wordmark"><span class="mark">X!</span> {{.Event.Short}}</span>
+    <p>&copy; {{.Event.Year}} {{.Event.Short}} by Raphael Miyoyo. Questions: <a href="mailto:{{.Event.Email}}">{{.Event.Email}}</a></p>
+  </div>
+</footer>
+<script src="scripts/script.js"></script>
+</body>
+</html>
+{{end}}
