@@ -1,137 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>InnovationX Africa Summit</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
-        <link rel="stylesheet" href="./style/style.css">     
-    </head>
-    <body>
-      <header>
-        <div class="top-navigation">
-          <nav class="media-links">
-            <ul>
-              <li><a><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-              <li><a><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-              <li><a>English</a></li>
-              <li><a>My Page</a></li>
-              <li><a>Logout</a></li>
-            </ul>
-          </nav>
-          <nav>
-            <li class="logo-link"><a href="index.html"><img class="summitlogo" src="./images/logos/CSi.png" alt="Summit Logo"/></a>
-              <ul>
-                <li><a href="about_page.html" id="about-active"> About</a></li>
-                <li><a href="#"> Program</a></li>
-                <li><a href="#"> Join</a></li>
-                <li><a href="#"> Sponsor</a></li>
-                <li><a href="#"> News</a></li>
-                <li class="campaign"><a href="#"> IX Campaign</a></li>
-              </ul>
-            </nav> 
-          </div>
-          <nav class="toggle-menu">
-            <div class="mobile-menu">
-              <a href="index.html"><img class="mobile-logo" src="./images/logos/CSi.png" alt="Summit Logo"/></a>
-            </div>
-            <div class="nav-links">
-              <i class="fa fa-times fa-2x" aria-hidden="true"></i>
-              <ul>
-                <li><a href="about_page.html" id="about-active">About</a></li>
-                <li><a href="#">Progress</a></li>
-                <li><a href="#">Join</a></li>
-                <li><a href="#">Sponsor</a></li>
-                <li><a href="#">News</a></li>
-              </ul>
-            </div>
-            <div class="campaign">
-              <ul>
-                <li><a href="#">Campaign</a></li>
-              </ul>
-            </div>
-          </nav>
-        </header>
-      <section class="container">
-          <section class="intro-section">
-            <i id="toggle" class="fa fa-bars fa-2x" aria-hidden="true"></i>
-            <p class="welcome">"Hello! Sharing world"</p>
-            <h1>InnovationX Commons Africa Summit 2025</h1>
-            <p class="hero-text">
-                In July, an event promoting the uplifting principles of openness and sharing, and facilitating positive change through collaboration with individuals from more than 80 nations, will be held in Kenya.
-            </p>
-            <div class="date-position">
-                <h2 class="summit-date">10.07.2025(MON) ~ 11(TUE)</h2>
-                <span><img src="./images/SVG/place.svg" alt="Location" />Kenyatta International Conference Centre, UN Compound and more</span>
-            </div>
-          </section>
-          <section class="homepage">
-            <h2 class="first">Main Program</h2>
-            <div class="home-content">
-              <div class="info-log">
-                <img src="./images/program/1 lecture.png" alt="Lecture" />
-                <h3>Lecture</h3>
-                <p>
-                  Listen to the speakers from various countries about the message of innovation and technology in Afrika.
-                </p>
-              </div>
-              <div class="info-log">
-                <img src="./images/program/1 exhibition.png" alt="IX Exhibition" />
-                <h3>IX Exhibition</h3>
-                <p>
-                  Appreciate various innovations applying the IX patent presented by innovators, hobbyists and hackers.
-                </p>
-              </div>
-              <div class="info-log">
-                <img src="./images/program/1 forum.png" alt="Forum" />
-                <h3>Forum</h3>
-                <p>
-                  Get the opportunity to share your thoughts and opinions with experts and thought leaders in tech industry.
-                </p>
-              </div>
-              <div class="info-log">
-                <img src="./images/program/1 workshop.png" alt="Workshop" />
-                <h3>Workshop</h3>
-                <p>
-                  Try creating your own work using the open source model instead of just being a spectator in the industry.
-                </p>
-              </div>
-              <div class="info-log">
-                <img src="./images/program/1 ignite.png" alt="IX Ignite" />
-                <h3>IX Ignite</h3>
-                <p>
-                  Get the opportunity to network with IX Summit attendees and supports across the continent even after the summit.
-                </p>
-              </div>
-            </div>
-            <div class="center-content">
-              <button class="join-btn">Join CS African Summit 2025</button>
-              <p class="main-footer">SEE THE WHOLE PROGRAM</p>
-            </div>
-          </section>
-          <section id="profiles" class="speaker-profiles">
-            <h3 class="talkers">Featured Speakers</h3>
-            <div class="guests"></div>
-          </section>
-          <section class="sponsors">
-            <h2>Partner</h2>
-            <div class="sponsor">
-              <img src="./images/partners/youtube.png" alt="YouTube" width="100px" />
-              <img src="./images/partners/facebook.png" alt="Meta" width="100px" />
-              <img src="./images/partners/windows.png" alt="Microsoft" width="100px" />
-              <img src="./images/partners/ford.png" alt="Ford Motors" width="100px" />
-              <img src="./images/partners/grand.png" alt="Ford Motors" width="100px" />
-            </div>
-          </section>
-          <footer class="footer">
-            <div>
-              <img src="./images/logos/CSi.png" width="30px" />
-            </div>
-            <div>&copy 2025 - InnovationX Summit by Raphael Miyoyo</div>
-          </footer>
-        </section>
-      </section>
-      <script src="scripts/script.js"></script>
-    </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InnovationX Commons Africa Summit 2025</title>
+<meta name="description" content="InnovationX Commons Africa Summit, Thursday 10 to Friday 11 July 2025, at the Kenyatta International Conference Centre in Nairobi.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;display=swap">
+<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="wordmark" href="index.html"><span class="mark">X!</span> InnovationX Summit</a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" hidden>Menu</button>
+    <nav id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="about_page.html">About</a></li>
+        <li><a href="index.html#program">Program</a></li>
+        <li><a href="index.html#speakers">Speakers</a></li>
+        <li><a href="index.html#venue">Venue</a></li>
+        <li><a href="index.html#partners">Partners</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="main">
+<section class="hero" aria-labelledby="title">
+  <div class="wrap">
+    <p class="tagline">Hello, sharing world!</p>
+    <h1 id="title">InnovationX Commons Africa Summit 2025</h1>
+    <p class="lead">An event for openness, sharing and change through collaboration, with people from more than 80 countries, held in Nairobi.</p>
+    <dl class="when-where">
+      <div>
+        <dt>When</dt>
+        <dd><time datetime="2025-07-10">Thursday 10 to Friday 11 July 2025</time></dd>
+      </div>
+      <div>
+        <dt>Where</dt>
+        <dd><a href="#venue">Kenyatta International Conference Centre</a>, Nairobi</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="program" id="program" aria-labelledby="program-title">
+  <div class="wrap">
+    <h2 id="program-title">Main program</h2>
+    <ol class="sessions">
+      <li>
+        <img src="images/program/1%20lecture.png" alt="" width="59" height="53">
+        <h3>Lecture</h3>
+        <p>Speakers from across the continent on innovation and technology in Africa.</p>
+      </li>
+      <li>
+        <img src="images/program/1%20exhibition.png" alt="" width="59" height="53">
+        <h3>Exhibition</h3>
+        <p>Work built on open patents by innovators, hobbyists and hackers.</p>
+      </li>
+      <li>
+        <img src="images/program/1%20forum.png" alt="" width="59" height="53">
+        <h3>Forum</h3>
+        <p>Put your questions and opinions to experts and leaders in the tech industry.</p>
+      </li>
+      <li>
+        <img src="images/program/1%20workshop.png" alt="" width="59" height="53">
+        <h3>Workshop</h3>
+        <p>Make something yourself with open source tools instead of only watching.</p>
+      </li>
+      <li>
+        <img src="images/program/1%20ignite.png" alt="" width="59" height="53">
+        <h3>Ignite</h3>
+        <p>Meet attendees and supporters from across the continent, and stay in touch after the summit.</p>
+      </li>
+    </ol>
+    <p class="cta"><a class="button" href="mailto:miyoyo@gmail.com?subject=InnovationX%20Summit%202025">Register by email</a></p>
+  </div>
+</section>
+
+<section class="speakers" id="speakers" aria-labelledby="speakers-title">
+  <div class="wrap">
+    <h2 id="speakers-title">Featured speakers</h2>
+    <ul class="speaker-list">
+      <li>
+        <img src="images/keynote/naledi.png" alt="" width="110" height="110" loading="lazy">
+        <div>
+          <h3>James Smith</h3>
+          <p class="role">Chief Technology Officer, Innovate Tech</p>
+          <p>James leads a team of engineers and researchers building new products. He has spent over ten years in software development.</p>
+        </div>
+      </li>
+      <li>
+        <img src="images/keynote/lwazi.png" alt="" width="110" height="110" loading="lazy">
+        <div>
+          <h3>Sarah Johnson</h3>
+          <p class="role">Cybersecurity Expert, SecureNet</p>
+          <p>Sarah protects organisations from cyber threats and speaks at industry conferences about good security practice.</p>
+        </div>
+      </li>
+      <li>
+        <img src="images/keynote/yemisi.png" alt="" width="110" height="110" loading="lazy">
+        <div>
+          <h3>Michael Lee</h3>
+          <p class="role">Data Scientist, DataWise</p>
+          <p>Michael works on machine learning and analytics, and on getting businesses to trust what their data says.</p>
+        </div>
+      </li>
+      <li>
+        <img src="images/keynote/hicham.png" alt="" width="110" height="110" loading="lazy">
+        <div>
+          <h3>Emily Chen</h3>
+          <p class="role">Product Manager, Tech Innovations</p>
+          <p>Emily has a background in product management and user experience design, and cares about products people actually use.</p>
+        </div>
+      </li>
+      <li>
+        <img src="images/keynote/doreen.png" alt="" width="110" height="110" loading="lazy">
+        <div>
+          <h3>Robert Brown</h3>
+          <p class="role">Blockchain Developer, Crypto Solutions</p>
+          <p>Robert builds systems for secure transactions and has worked on several large blockchain projects.</p>
+        </div>
+      </li>
+      <li>
+        <img src="images/keynote/fadumo.png" alt="" width="110" height="110" loading="lazy">
+        <div>
+          <h3>Linda Garcia</h3>
+          <p class="role">AI Researcher, Future AI Labs</p>
+          <p>Linda develops AI methods for hard problems and takes part in work on responsible AI.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="venue" id="venue" aria-labelledby="venue-title">
+  <div class="wrap narrow">
+    <div>
+      <h2 id="venue-title">Getting there</h2>
+      <p>The summit is at the <strong>Kenyatta International Conference Centre</strong> (KICC) on Harambee Avenue, in Nairobi Central ward, Starehe constituency, Nairobi County.</p>
+      <p><a href="https://www.openstreetmap.org/?mlat=-1.2884&amp;mlon=36.8233#map=17/-1.2884/36.8233">Open KICC on OpenStreetMap</a></p>
+    </div>
+    <div class="travel">
+      <h3>Coming from another county?</h3>
+      <div class="picker" hidden>
+        <label for="county">Your county</label>
+        <select id="county">
+          <option value="">Choose your county</option>
+          <option value="30" data-km="240" data-hq="Kabarnet">Baringo County</option>
+          <option value="36" data-km="184" data-hq="Bomet">Bomet County</option>
+          <option value="39" data-km="332" data-hq="Bungoma">Bungoma County</option>
+          <option value="40" data-km="347" data-hq="Busia">Busia County</option>
+          <option value="28" data-km="273" data-hq="Iten">Elgeyo-Marakwet County</option>
+          <option value="14" data-km="117" data-hq="Embu">Embu County</option>
+          <option value="7" data-km="384" data-hq="Garissa">Garissa County</option>
+          <option value="43" data-km="286" data-hq="Homa Bay">Homa Bay County</option>
+          <option value="11" data-km="319" data-hq="Isiolo">Isiolo County</option>
+          <option value="34" data-km="93" data-hq="Kajiado" data-borders>Kajiado County</option>
+          <option value="37" data-km="298" data-hq="Kakamega">Kakamega County</option>
+          <option value="35" data-km="202" data-hq="Kericho">Kericho County</option>
+          <option value="22" data-km="25" data-hq="Kiambu" data-borders>Kiambu County</option>
+          <option value="3" data-km="381" data-hq="Kilifi">Kilifi County</option>
+          <option value="20" data-km="101" data-hq="Kerugoya / Kutus">Kirinyaga County</option>
+          <option value="45" data-km="235" data-hq="Kisii">Kisii County</option>
+          <option value="42" data-km="254" data-hq="Kisumu">Kisumu County</option>
+          <option value="15" data-km="177" data-hq="Kitui">Kitui County</option>
+          <option value="2" data-km="409" data-hq="Kwale">Kwale County</option>
+          <option value="31" data-km="179" data-hq="Nanyuki">Laikipia County</option>
+          <option value="5" data-km="446" data-hq="Lamu">Lamu County</option>
+          <option value="16" data-km="65" data-hq="Machakos" data-borders>Machakos County</option>
+          <option value="17" data-km="146" data-hq="Wote">Makueni County</option>
+          <option value="9" data-km="682" data-hq="Mandera">Mandera County</option>
+          <option value="10" data-km="482" data-hq="Marsabit">Marsabit County</option>
+          <option value="12" data-km="193" data-hq="Meru">Meru County</option>
+          <option value="44" data-km="275" data-hq="Migori">Migori County</option>
+          <option value="1" data-km="437" data-hq="Mombasa">Mombasa County</option>
+          <option value="21" data-km="58" data-hq="Murang&#39;a">Murang&#39;a County</option>
+          <option value="47" data-km="5" data-hq="Nairobi" data-host>Nairobi County</option>
+          <option value="32" data-km="124" data-hq="Nakuru">Nakuru County</option>
+          <option value="29" data-km="251" data-hq="Kapsabet">Nandi County</option>
+          <option value="33" data-km="139" data-hq="Narok">Narok County</option>
+          <option value="46" data-km="219" data-hq="Nyamira">Nyamira County</option>
+          <option value="18" data-km="115" data-hq="Ol Kalou">Nyandarua County</option>
+          <option value="19" data-km="106" data-hq="Nyeri">Nyeri County</option>
+          <option value="25" data-km="292" data-hq="Maralal">Samburu County</option>
+          <option value="41" data-km="317" data-hq="Siaya">Siaya County</option>
+          <option value="6" data-km="297" data-hq="Mwatate">Taita-Taveta County</option>
+          <option value="4" data-km="289" data-hq="Hola">Tana River County</option>
+          <option value="13" data-km="168" data-hq="Kathwana">Tharaka-Nithi County</option>
+          <option value="26" data-km="333" data-hq="Kitale">Trans-Nzoia County</option>
+          <option value="23" data-km="545" data-hq="Lodwar">Turkana County</option>
+          <option value="27" data-km="263" data-hq="Eldoret">Uasin Gishu County</option>
+          <option value="38" data-km="279" data-hq="Vihiga">Vihiga County</option>
+          <option value="8" data-km="496" data-hq="Wajir">Wajir County</option>
+          <option value="24" data-km="379" data-hq="Kapenguria">West Pokot County</option>
+        </select>
+        <p class="answer" id="county-answer" aria-live="polite"></p>
+      </div>
+      <details class="county-table">
+        <summary>Distance to KICC from every county</summary>
+        <table>
+          <thead><tr><th scope="col">County</th><th scope="col">Headquarters</th><th scope="col">Distance</th></tr></thead>
+          <tbody>
+            <tr><td>Baringo County</td><td>Kabarnet</td><td>240 km</td></tr>
+            <tr><td>Bomet County</td><td>Bomet</td><td>184 km</td></tr>
+            <tr><td>Bungoma County</td><td>Bungoma</td><td>332 km</td></tr>
+            <tr><td>Busia County</td><td>Busia</td><td>347 km</td></tr>
+            <tr><td>Elgeyo-Marakwet County</td><td>Iten</td><td>273 km</td></tr>
+            <tr><td>Embu County</td><td>Embu</td><td>117 km</td></tr>
+            <tr><td>Garissa County</td><td>Garissa</td><td>384 km</td></tr>
+            <tr><td>Homa Bay County</td><td>Homa Bay</td><td>286 km</td></tr>
+            <tr><td>Isiolo County</td><td>Isiolo</td><td>319 km</td></tr>
+            <tr><td>Kajiado County <span class="tag">borders Nairobi County</span></td><td>Kajiado</td><td>93 km</td></tr>
+            <tr><td>Kakamega County</td><td>Kakamega</td><td>298 km</td></tr>
+            <tr><td>Kericho County</td><td>Kericho</td><td>202 km</td></tr>
+            <tr><td>Kiambu County <span class="tag">borders Nairobi County</span></td><td>Kiambu</td><td>25 km</td></tr>
+            <tr><td>Kilifi County</td><td>Kilifi</td><td>381 km</td></tr>
+            <tr><td>Kirinyaga County</td><td>Kerugoya / Kutus</td><td>101 km</td></tr>
+            <tr><td>Kisii County</td><td>Kisii</td><td>235 km</td></tr>
+            <tr><td>Kisumu County</td><td>Kisumu</td><td>254 km</td></tr>
+            <tr><td>Kitui County</td><td>Kitui</td><td>177 km</td></tr>
+            <tr><td>Kwale County</td><td>Kwale</td><td>409 km</td></tr>
+            <tr><td>Laikipia County</td><td>Nanyuki</td><td>179 km</td></tr>
+            <tr><td>Lamu County</td><td>Lamu</td><td>446 km</td></tr>
+            <tr><td>Machakos County <span class="tag">borders Nairobi County</span></td><td>Machakos</td><td>65 km</td></tr>
+            <tr><td>Makueni County</td><td>Wote</td><td>146 km</td></tr>
+            <tr><td>Mandera County</td><td>Mandera</td><td>682 km</td></tr>
+            <tr><td>Marsabit County</td><td>Marsabit</td><td>482 km</td></tr>
+            <tr><td>Meru County</td><td>Meru</td><td>193 km</td></tr>
+            <tr><td>Migori County</td><td>Migori</td><td>275 km</td></tr>
+            <tr><td>Mombasa County</td><td>Mombasa</td><td>437 km</td></tr>
+            <tr><td>Murang&#39;a County</td><td>Murang&#39;a</td><td>58 km</td></tr>
+            <tr><td>Nairobi County</td><td>Nairobi</td><td>&ndash;</td></tr>
+            <tr><td>Nakuru County</td><td>Nakuru</td><td>124 km</td></tr>
+            <tr><td>Nandi County</td><td>Kapsabet</td><td>251 km</td></tr>
+            <tr><td>Narok County</td><td>Narok</td><td>139 km</td></tr>
+            <tr><td>Nyamira County</td><td>Nyamira</td><td>219 km</td></tr>
+            <tr><td>Nyandarua County</td><td>Ol Kalou</td><td>115 km</td></tr>
+            <tr><td>Nyeri County</td><td>Nyeri</td><td>106 km</td></tr>
+            <tr><td>Samburu County</td><td>Maralal</td><td>292 km</td></tr>
+            <tr><td>Siaya County</td><td>Siaya</td><td>317 km</td></tr>
+            <tr><td>Taita-Taveta County</td><td>Mwatate</td><td>297 km</td></tr>
+            <tr><td>Tana River County</td><td>Hola</td><td>289 km</td></tr>
+            <tr><td>Tharaka-Nithi County</td><td>Kathwana</td><td>168 km</td></tr>
+            <tr><td>Trans-Nzoia County</td><td>Kitale</td><td>333 km</td></tr>
+            <tr><td>Turkana County</td><td>Lodwar</td><td>545 km</td></tr>
+            <tr><td>Uasin Gishu County</td><td>Eldoret</td><td>263 km</td></tr>
+            <tr><td>Vihiga County</td><td>Vihiga</td><td>279 km</td></tr>
+            <tr><td>Wajir County</td><td>Wajir</td><td>496 km</td></tr>
+            <tr><td>West Pokot County</td><td>Kapenguria</td><td>379 km</td></tr>
+          </tbody>
+        </table>
+      </details>
+      <p class="note">Distances are in a straight line from the middle of each county, so the road trip will be longer. County data from <a href="https://github.com/rmiyoyo/kenya-geo">kenya-geo</a>.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+<section class="partners" id="partners" aria-labelledby="partners-title">
+  <div class="wrap">
+    <h2 id="partners-title">Partners</h2>
+    <ul class="partner-list">
+      <li><img src="images/partners/youtube.png" alt="YouTube" width="120" height="60" loading="lazy"></li>
+      <li><img src="images/partners/facebook.png" alt="Meta" width="120" height="60" loading="lazy"></li>
+      <li><img src="images/partners/windows.png" alt="Microsoft" width="120" height="60" loading="lazy"></li>
+      <li><img src="images/partners/ford.png" alt="Ford" width="120" height="60" loading="lazy"></li>
+      <li><img src="images/partners/grand.png" alt="Adidas" width="120" height="60" loading="lazy"></li>
+    </ul>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <span class="wordmark"><span class="mark">X!</span> InnovationX Summit</span>
+    <p>&copy; 2025 InnovationX Summit by Raphael Miyoyo. Questions: <a href="mailto:miyoyo@gmail.com">miyoyo@gmail.com</a></p>
+  </div>
+</footer>
+<script src="scripts/script.js"></script>
+</body>
 </html>

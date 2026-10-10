@@ -1,0 +1,87 @@
+{{define "content"}}<section class="hero" aria-labelledby="title">
+  <div class="wrap">
+    <p class="tagline">Hello, sharing world!</p>
+    <h1 id="title">{{.Event.Name}} {{.Event.Year}}</h1>
+    <p class="lead">An event for openness, sharing and change through collaboration, with people from more than 80 countries, held in Nairobi.</p>
+    <dl class="when-where">
+      <div>
+        <dt>When</dt>
+        <dd><time datetime="{{.Event.ISOStart}}">{{.Event.Dates}}</time></dd>
+      </div>
+      <div>
+        <dt>Where</dt>
+        <dd><a href="#venue">{{.Venue.Name}}</a>, Nairobi</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<section class="program" id="program" aria-labelledby="program-title">
+  <div class="wrap">
+    <h2 id="program-title">Main program</h2>
+    <ol class="sessions">
+      {{- range .Event.Program}}
+      <li>
+        <img src="{{.Icon}}" alt="" width="59" height="53">
+        <h3>{{.Name}}</h3>
+        <p>{{.Text}}</p>
+      </li>
+      {{- end}}
+    </ol>
+    <p class="cta"><a class="button" href="mailto:{{.Event.Email}}?subject={{.Event.Short}}%20{{.Event.Year}}">Register by email</a></p>
+  </div>
+</section>
+
+<section class="speakers" id="speakers" aria-labelledby="speakers-title">
+  <div class="wrap">
+    <h2 id="speakers-title">Featured speakers</h2>
+    <ul class="speaker-list">
+      {{- range .Event.Speakers}}
+      <li>
+        <img src="{{.Photo}}" alt="" width="110" height="110" loading="lazy">
+        <div>
+          <h3>{{.Name}}</h3>
+          <p class="role">{{.Role}}</p>
+          <p>{{.Bio}}</p>
+        </div>
+      </li>
+      {{- end}}
+    </ul>
+  </div>
+</section>
+
+<section class="venue" id="venue" aria-labelledby="venue-title">
+  <div class="wrap narrow">
+    <div>
+      <h2 id="venue-title">Getting there</h2>
+      <p>The summit is at the <strong>{{.Venue.Name}}</strong> (KICC) on Harambee Avenue, in {{.Venue.Ward}} ward, {{.Venue.Constituency}} constituency, {{.Venue.County}}.</p>
+      <p><a href="{{.Venue.MapLink}}">Open KICC on OpenStreetMap</a></p>
+    </div>
+    <div class="travel">
+      <h3>Coming from another county?</h3>
+      <div class="picker" hidden>
+        <label for="county">Your county</label>
+        <select id="county">
+          <option value="">Choose your county</option>
+          {{- range .Venue.Counties}}
+          <option value="{{.Code}}" data-km="{{.Km}}" data-hq="{{.Headquarters}}"{{if .Borders}} data-borders{{end}}{{if .Host}} data-host{{end}}>{{.Name}}</option>
+          {{- end}}
+        </select>
+        <p class="answer" id="county-answer" aria-live="polite"></p>
+      </div>
+      <details class="county-table">
+        <summary>Distance to KICC from every county</summary>
+        <table>
+          <thead><tr><th scope="col">County</th><th scope="col">Headquarters</th><th scope="col">Distance</th></tr></thead>
+          <tbody>
+            {{- range .Venue.Counties}}
+            <tr><td>{{.Name}}{{if .Borders}} <span class="tag">borders {{$.Venue.County}}</span>{{end}}</td><td>{{.Headquarters}}</td><td>{{if .Host}}&ndash;{{else}}{{.Km}} km{{end}}</td></tr>
+            {{- end}}
+          </tbody>
+        </table>
+      </details>
+      <p class="note">Distances are in a straight line from the middle of each county, so the road trip will be longer. County data from <a href="https://github.com/rmiyoyo/kenya-geo">kenya-geo</a>.</p>
+    </div>
+  </div>
+</section>
+{{end}}
