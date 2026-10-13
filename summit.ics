@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//InnovationX Summit//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:2027-07-08@innovationx-summit
+DTSTAMP:20270708T000000Z
+DTSTART;VALUE=DATE:20270708
+DTEND;VALUE=DATE:20270710
+SUMMARY:InnovationX Commons Africa Summit 2027
+LOCATION:Kenyatta International Conference Centre\, Harambee Avenue\, Nairobi
+GEO:-1.2884;36.8233
+URL:https://rmiyoyo.github.io/Conference-Website/
+END:VEVENT
+END:VCALENDAR

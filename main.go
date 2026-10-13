@@ -49,17 +49,17 @@ func run(args []string, stdout, stderr io.Writer) int {
 		return 1
 	}
 	stale := 0
-	for _, p := range pages {
-		path := filepath.Join(*out, p.File)
+	for _, file := range outputs() {
+		path := filepath.Join(*out, file)
 		if *check {
 			old, err := os.ReadFile(path)
-			if err != nil || !bytes.Equal(old, rendered[p.File]) {
+			if err != nil || !bytes.Equal(old, rendered[file]) {
 				fmt.Fprintf(stderr, "%s is out of date; run go run .\n", path)
 				stale++
 			}
 			continue
 		}
-		if err := os.WriteFile(path, rendered[p.File], 0o644); err != nil {
+		if err := os.WriteFile(path, rendered[file], 0o644); err != nil {
 			fmt.Fprintln(stderr, err)
 			return 1
 		}
@@ -88,5 +88,16 @@ func render(geo *kenyageo.Data) (map[string][]byte, error) {
 		}
 		out[p.File] = buf.Bytes()
 	}
+	out[calendarFile] = summit.Calendar(venue)
 	return out, nil
+}
+
+const calendarFile = "summit.ics"
+
+func outputs() []string {
+	files := []string{calendarFile}
+	for _, p := range pages {
+		files = append(files, p.File)
+	}
+	return files
 }

@@ -5,10 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{with .Page.Title}}{{.}}: {{end}}{{.Event.Name}} {{.Event.Year}}</title>
 <meta name="description" content="{{.Event.Name}}, {{.Event.Dates}}, at the {{.Venue.Name}} in Nairobi.">
+<meta name="theme-color" content="#272a31">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{.Event.Name}} {{.Event.Year}}">
+<meta property="og:description" content="{{.Event.Dates}}, at the {{.Venue.Name}} in Nairobi.">
+<meta property="og:url" content="{{.Event.URL}}{{.Page.File}}">
+<meta property="og:image" content="{{.Event.URL}}images/logos/CS.png">
+<link rel="icon" href="images/logos/CS.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&amp;display=swap">
 <link rel="stylesheet" href="style/style.css">
+<script type="application/ld+json">{{.Event.StructuredData .Venue}}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>

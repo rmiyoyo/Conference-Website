@@ -1,6 +1,12 @@
 package main
 
-import "time"
+import (
+	"fmt"
+	"strings"
+	"time"
+)
+
+const siteURL = "https://rmiyoyo.github.io/Conference-Website/"
 
 type Session struct {
 	Name, Icon, Text string
@@ -37,8 +43,8 @@ func (e Event) Year() int        { return e.Start.Year() }
 var summit = Event{
 	Name:  "InnovationX Commons Africa Summit",
 	Short: "InnovationX Summit",
-	Start: time.Date(2025, time.July, 10, 0, 0, 0, 0, time.UTC),
-	End:   time.Date(2025, time.July, 11, 0, 0, 0, 0, time.UTC),
+	Start: time.Date(2027, time.July, 8, 0, 0, 0, 0, time.UTC),
+	End:   time.Date(2027, time.July, 9, 0, 0, 0, 0, time.UTC),
 	Venue: "Kenyatta International Conference Centre",
 	Email: "miyoyo@gmail.com",
 	Program: []Session{
@@ -51,10 +57,10 @@ var summit = Event{
 	Speakers: []Speaker{
 		{"James Smith", "Chief Technology Officer, Innovate Tech", "James leads a team of engineers and researchers building new products. He has spent over ten years in software development.", "images/keynote/naledi.png"},
 		{"Sarah Johnson", "Cybersecurity Expert, SecureNet", "Sarah protects organisations from cyber threats and speaks at industry conferences about good security practice.", "images/keynote/lwazi.png"},
-		{"Michael Lee", "Data Scientist, DataWise", "Michael works on machine learning and analytics, and on getting businesses to trust what their data says.", "images/keynote/yemisi.png"},
-		{"Emily Chen", "Product Manager, Tech Innovations", "Emily has a background in product management and user experience design, and cares about products people actually use.", "images/keynote/hicham.png"},
-		{"Robert Brown", "Blockchain Developer, Crypto Solutions", "Robert builds systems for secure transactions and has worked on several large blockchain projects.", "images/keynote/doreen.png"},
-		{"Linda Garcia", "AI Researcher, Future AI Labs", "Linda develops AI methods for hard problems and takes part in work on responsible AI.", "images/keynote/fadumo.png"},
+		{"Michael Lee", "Data Scientist, DataWise", "Michael works on machine learning and analytics, and on getting businesses to trust what their data says.", "images/keynote/fadumo.png"},
+		{"Emily Chen", "Product Manager, Tech Innovations", "Emily has a background in product management and user experience design, and cares about products people actually use.", "images/keynote/yemisi.png"},
+		{"Robert Brown", "Blockchain Developer, Crypto Solutions", "Robert builds systems for secure transactions and has worked on several large blockchain projects.", "images/keynote/hicham.png"},
+		{"Linda Garcia", "AI Researcher, Future AI Labs", "Linda develops AI methods for hard problems and takes part in work on responsible AI.", "images/keynote/doreen.png"},
 	},
 	Partners: []Partner{
 		{"YouTube", "images/partners/youtube.png"},
@@ -64,3 +70,73 @@ var summit = Event{
 		{"Adidas", "images/partners/grand.png"},
 	},
 }
+
+func (e Event) Calendar(v Venue) []byte {
+	lines := []string{
+		"BEGIN:VCALENDAR",
+		"VERSION:2.0",
+		"PRODID:-//" + e.Short + "//EN",
+		"CALSCALE:GREGORIAN",
+		"BEGIN:VEVENT",
+		"UID:" + e.ISOStart() + "@innovationx-summit",
+		"DTSTAMP:" + e.Start.Format("20060102") + "T000000Z",
+		"DTSTART;VALUE=DATE:" + e.Start.Format("20060102"),
+		"DTEND;VALUE=DATE:" + e.End.AddDate(0, 0, 1).Format("20060102"),
+		"SUMMARY:" + icsText(fmt.Sprintf("%s %d", e.Name, e.Year())),
+		"LOCATION:" + icsText(v.Name+", Harambee Avenue, Nairobi"),
+		fmt.Sprintf("GEO:%.4f;%.4f", v.Lat, v.Lng),
+		"URL:" + siteURL,
+		"END:VEVENT",
+		"END:VCALENDAR",
+	}
+	return []byte(strings.Join(lines, "\r\n") + "\r\n")
+}
+
+func icsText(s string) string {
+	return strings.NewReplacer(`\`, `\\`, ";", `\;`, ",", `\,`).Replace(s)
+}
+
+type place struct {
+	Type    string `json:"@type"`
+	Name    string `json:"name"`
+	Address string `json:"address"`
+}
+
+type person struct {
+	Type     string `json:"@type"`
+	Name     string `json:"name"`
+	JobTitle string `json:"jobTitle"`
+}
+
+type eventData struct {
+	Context    string   `json:"@context"`
+	Type       string   `json:"@type"`
+	Name       string   `json:"name"`
+	StartDate  string   `json:"startDate"`
+	EndDate    string   `json:"endDate"`
+	Mode       string   `json:"eventAttendanceMode"`
+	Status     string   `json:"eventStatus"`
+	URL        string   `json:"url"`
+	Location   place    `json:"location"`
+	Performers []person `json:"performer"`
+}
+
+func (e Event) StructuredData(v Venue) eventData {
+	d := eventData{
+		Context:   "https://schema.org",
+		Type:      "Event",
+		Name:      fmt.Sprintf("%s %d", e.Name, e.Year()),
+		StartDate: e.ISOStart(),
+		EndDate:   e.ISOEnd(),
+		Mode:      "https://schema.org/OfflineEventAttendanceMode",
+		Status:    "https://schema.org/EventScheduled",
+		URL:       siteURL,
+		Location:  place{"Place", v.Name, "Harambee Avenue, Nairobi, Kenya"},
+	}
+	for _, s := range e.Speakers {
+		d.Performers = append(d.Performers, person{"Person", s.Name, s.Role})
+	}
+	return d
+}
+
+func (e Event) URL() string { return siteURL }

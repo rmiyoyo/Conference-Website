@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"os"
+	"strings"
 	"testing"
 
 	kenyageo "github.com/rmiyoyo/kenya-geo"
@@ -13,13 +14,13 @@ func TestPagesUpToDate(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	for _, p := range pages {
-		old, err := os.ReadFile(p.File)
+	for _, file := range outputs() {
+		old, err := os.ReadFile(file)
 		if err != nil {
 			t.Fatal(err)
 		}
-		if !bytes.Equal(old, rendered[p.File]) {
-			t.Errorf("%s is out of date; run go run .", p.File)
+		if !bytes.Equal(old, rendered[file]) {
+			t.Errorf("%s is out of date; run go run .", file)
 		}
 	}
 }
@@ -60,7 +61,25 @@ func TestHaversine(t *testing.T) {
 }
 
 func TestDates(t *testing.T) {
-	if got, want := summit.Dates(), "Thursday 10 to Friday 11 July 2025"; got != want {
+	if got, want := summit.Dates(), "Thursday 8 to Friday 9 July 2027"; got != want {
 		t.Errorf("got %q, want %q", got, want)
+	}
+}
+
+func TestCalendar(t *testing.T) {
+	v, err := buildVenue(kenyageo.Default(), summit.Venue, kicc)
+	if err != nil {
+		t.Fatal(err)
+	}
+	ics := string(summit.Calendar(v))
+	for _, want := range []string{
+		"DTSTART;VALUE=DATE:20270708\r\n",
+		"DTEND;VALUE=DATE:20270710\r\n",
+		"SUMMARY:InnovationX Commons Africa Summit 2027\r\n",
+		"LOCATION:Kenyatta International Conference Centre\\, Harambee Avenue\\, Nairobi\r\n",
+	} {
+		if !strings.Contains(ics, want) {
+			t.Errorf("calendar is missing %q:\n%s", want, ics)
+		}
 	}
 }

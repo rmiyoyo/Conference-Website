@@ -194,6 +194,15 @@ h3 {
   font-weight: 900;
 }
 
+.when-where .add-cal {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.when-where .add-cal a {
+  color: var(--red);
+}
+
 section > .wrap > h2 {
   margin: 0 0 2rem;
   font-size: 1.6rem;
