@@ -11,7 +11,17 @@
   <div class="wrap narrow">
     <h2 id="logo-title">The logo</h2>
     <p>The logo was drawn by a team of graphic designers who took their cue from the colours and patterns of African textiles and art. It stands for the many innovators the summit brings together, and the work they do with each other.</p>
-    <img src="images/logos/CSi.png" alt="InnovationX Summit logo" width="351" height="160">
+    <svg class="logo-lockup" viewBox="0 0 360 150" role="img" aria-label="InnovationX Summit {{.Event.Year}} logo, {{.Event.LogoDates}}">
+      <circle cx="58" cy="44" r="22" fill="#ec5242"/>
+      <circle cx="86" cy="34" r="15" fill="#117a7a"/>
+      <circle cx="106" cy="18" r="6" fill="#272a31"/>
+      <circle cx="72" cy="84" r="40" fill="#fff" stroke="#272a31" stroke-width="5"/>
+      <text x="72" y="96" text-anchor="middle" class="mark-text">X!</text>
+      <text x="124" y="70" class="name-text">Innovation X</text>
+      <text x="128" y="104" class="year-text">Summit {{.Event.Year}}</text>
+      <line x1="122" y1="114" x2="350" y2="114" stroke="#272a31" stroke-width="2"/>
+      <text x="128" y="132" class="date-text">{{.Event.LogoDates}}</text>
+    </svg>
   </div>
 </section>
 

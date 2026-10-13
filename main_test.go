@@ -71,7 +71,13 @@ func TestCalendar(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	ics := string(summit.Calendar(v))
+	raw := string(summit.Calendar(v))
+	for _, line := range strings.Split(strings.TrimSuffix(raw, "\r\n"), "\r\n") {
+		if len(line) > 75 {
+			t.Errorf("line is %d bytes, over the 75 the format allows: %q", len(line), line)
+		}
+	}
+	ics := strings.ReplaceAll(raw, "\r\n ", "")
 	for _, want := range []string{
 		"DTSTART;VALUE=DATE:20270708\r\n",
 		"DTEND;VALUE=DATE:20270710\r\n",

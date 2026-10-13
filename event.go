@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 	"time"
+	"unicode/utf8"
 )
 
 const siteURL = "https://rmiyoyo.github.io/Conference-Website/"
@@ -59,6 +60,10 @@ func (e Event) Days() []Day {
 func (e Event) ISOStart() string { return e.Start.Format("2006-01-02") }
 func (e Event) ISOEnd() string   { return e.End.Format("2006-01-02") }
 func (e Event) Year() int        { return e.Start.Year() }
+
+func (e Event) LogoDates() string {
+	return e.Start.Format("2") + "–" + e.End.Format("2 January 2006") + " · Nairobi, Kenya"
+}
 
 var summit = Event{
 	Name:  "InnovationX Commons Africa Summit",
@@ -131,7 +136,19 @@ func (e Event) Calendar(v Venue) []byte {
 		"END:VEVENT",
 		"END:VCALENDAR",
 	}
-	return []byte(strings.Join(lines, "\r\n") + "\r\n")
+	var b strings.Builder
+	for _, l := range lines {
+		for len(l) > 75 {
+			cut := 75
+			for cut > 0 && !utf8.RuneStart(l[cut]) {
+				cut--
+			}
+			b.WriteString(l[:cut] + "\r\n ")
+			l = l[cut:]
+		}
+		b.WriteString(l + "\r\n")
+	}
+	return []byte(b.String())
 }
 
 func icsText(s string) string {
@@ -144,27 +161,20 @@ type place struct {
 	Address string `json:"address"`
 }
 
-type person struct {
-	Type     string `json:"@type"`
-	Name     string `json:"name"`
-	JobTitle string `json:"jobTitle"`
-}
-
 type eventData struct {
-	Context    string   `json:"@context"`
-	Type       string   `json:"@type"`
-	Name       string   `json:"name"`
-	StartDate  string   `json:"startDate"`
-	EndDate    string   `json:"endDate"`
-	Mode       string   `json:"eventAttendanceMode"`
-	Status     string   `json:"eventStatus"`
-	URL        string   `json:"url"`
-	Location   place    `json:"location"`
-	Performers []person `json:"performer"`
+	Context   string `json:"@context"`
+	Type      string `json:"@type"`
+	Name      string `json:"name"`
+	StartDate string `json:"startDate"`
+	EndDate   string `json:"endDate"`
+	Mode      string `json:"eventAttendanceMode"`
+	Status    string `json:"eventStatus"`
+	URL       string `json:"url"`
+	Location  place  `json:"location"`
 }
 
 func (e Event) StructuredData(v Venue) eventData {
-	d := eventData{
+	return eventData{
 		Context:   "https://schema.org",
 		Type:      "Event",
 		Name:      fmt.Sprintf("%s %d", e.Name, e.Year()),
@@ -175,10 +185,6 @@ func (e Event) StructuredData(v Venue) eventData {
 		URL:       siteURL,
 		Location:  place{"Place", v.Name, "Harambee Avenue, Nairobi, Kenya"},
 	}
-	for _, s := range e.Speakers {
-		d.Performers = append(d.Performers, person{"Person", s.Name, s.Role})
-	}
-	return d
 }
 
 func (e Event) URL() string { return siteURL }

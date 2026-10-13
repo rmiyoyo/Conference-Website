@@ -443,6 +443,39 @@ section > .wrap > h2::after {
   border-top: 1px solid var(--line);
 }
 
+.logo-lockup {
+  display: block;
+  width: min(100%, 360px);
+  height: auto;
+  margin: 1.5rem auto 0;
+}
+
+.logo-lockup text {
+  font-family: 'Lato', sans-serif;
+  fill: var(--dark);
+}
+
+.logo-lockup .mark-text {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.logo-lockup .name-text {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.logo-lockup .year-text {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.logo-lockup .date-text {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--grey);
+}
+
 .past-list {
   display: flex;
   flex-wrap: wrap;
@@ -499,6 +532,12 @@ section > .wrap > h2::after {
 
 .footer-row p {
   margin: 0;
+}
+
+.footer-row .disclaimer {
+  flex-basis: 100%;
+  font-size: 0.8rem;
+  color: #c9c9c9;
 }
 
 @media (max-width: 47.99rem) {
