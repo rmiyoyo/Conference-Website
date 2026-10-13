@@ -10,12 +10,12 @@ The pages are plain HTML, CSS and a little JavaScript, served by GitHub Pages st
 
 | File | What it holds |
 | --- | --- |
-| `event.go` | Name, dates, program, speakers and partners |
+| `event.go` | Name, dates, program, schedule, speakers and partners |
 | `venue.go` | Where KICC is and how far it is from each county |
 | `templates/` | The page layout and the home and about pages |
 | `style/style.css` | All the styling |
-| `scripts/script.js` | The mobile menu and the county picker |
-| `index.html`, `about_page.html`, `summit.ics` | The generated pages and calendar file; edit the Go and templates, not these |
+| `scripts/script.js` | The mobile menu, the countdown and the county picker |
+| `index.html`, `about_page.html`, `404.html`, `summit.ics` | The generated pages and calendar file; edit the Go and templates, not these |
 
 The venue section uses [kenya-geo](https://github.com/rmiyoyo/kenya-geo). At build time it finds the ward, constituency and county that KICC sits in, and works out the straight-line distance from the middle of every county to KICC, along with each county's headquarters and whether it borders Nairobi. Nothing is fetched when someone opens the page.
 

@@ -16,6 +16,16 @@ type Speaker struct {
 	Name, Role, Bio, Photo string
 }
 
+type Slot struct {
+	Time, Title, Room string
+}
+
+type Day struct {
+	Label string
+	ISO   string
+	Slots []Slot
+}
+
 type Partner struct {
 	Name, Logo string
 }
@@ -30,10 +40,20 @@ type Event struct {
 	Program  []Session
 	Speakers []Speaker
 	Partners []Partner
+	Schedule [][]Slot
 }
 
 func (e Event) Dates() string {
 	return e.Start.Format("Monday 2") + " to " + e.End.Format("Monday 2 January 2006")
+}
+
+func (e Event) Days() []Day {
+	var days []Day
+	for i, slots := range e.Schedule {
+		d := e.Start.AddDate(0, 0, i)
+		days = append(days, Day{d.Format("Monday 2 January"), d.Format("2006-01-02"), slots})
+	}
+	return days
 }
 
 func (e Event) ISOStart() string { return e.Start.Format("2006-01-02") }
@@ -61,6 +81,28 @@ var summit = Event{
 		{"Emily Chen", "Product Manager, Tech Innovations", "Emily has a background in product management and user experience design, and cares about products people actually use.", "images/keynote/yemisi.png"},
 		{"Robert Brown", "Blockchain Developer, Crypto Solutions", "Robert builds systems for secure transactions and has worked on several large blockchain projects.", "images/keynote/hicham.png"},
 		{"Linda Garcia", "AI Researcher, Future AI Labs", "Linda develops AI methods for hard problems and takes part in work on responsible AI.", "images/keynote/doreen.png"},
+	},
+	Schedule: [][]Slot{
+		{
+			{"08:00", "Registration and coffee", "Main foyer"},
+			{"09:00", "Opening keynote: James Smith on building research teams that ship", "Plenary Hall"},
+			{"10:30", "Lecture: Sarah Johnson on security for small teams", "Plenary Hall"},
+			{"11:30", "Exhibition opens", "Tsavo Ballroom"},
+			{"13:00", "Lunch", "Main foyer"},
+			{"14:00", "Workshops", "Amboseli Hall"},
+			{"16:00", "Forum: Michael Lee and Emily Chen on turning data into products", "Plenary Hall"},
+			{"18:00", "Ignite evening", "Rooftop terrace"},
+		},
+		{
+			{"08:30", "Coffee", "Main foyer"},
+			{"09:00", "Keynote: Linda Garcia on responsible AI", "Plenary Hall"},
+			{"10:30", "Lecture: Robert Brown on blockchain beyond money", "Plenary Hall"},
+			{"11:30", "Exhibition", "Tsavo Ballroom"},
+			{"13:00", "Lunch", "Main foyer"},
+			{"14:00", "Workshops", "Amboseli Hall"},
+			{"16:00", "Open forum with all six speakers", "Plenary Hall"},
+			{"17:30", "Closing", "Plenary Hall"},
+		},
 	},
 	Partners: []Partner{
 		{"YouTube", "images/partners/youtube.png"},

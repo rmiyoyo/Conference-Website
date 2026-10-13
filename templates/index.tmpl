@@ -8,6 +8,7 @@
         <dt>When</dt>
         <dd><time datetime="{{.Event.ISOStart}}">{{.Event.Dates}}</time></dd>
         <dd class="add-cal"><a href="summit.ics" download>Add to your calendar</a></dd>
+        <dd class="countdown" data-start="{{.Event.ISOStart}}" hidden></dd>
       </div>
       <div>
         <dt>Where</dt>
@@ -30,6 +31,26 @@
       {{- end}}
     </ol>
     <p class="cta"><a class="button" href="mailto:{{.Event.Email}}?subject={{.Event.Short}}%20{{.Event.Year}}">Register by email</a></p>
+  </div>
+</section>
+
+<section class="schedule" id="schedule" aria-labelledby="schedule-title">
+  <div class="wrap">
+    <h2 id="schedule-title">Schedule</h2>
+    <div class="days">
+      {{- range .Event.Days}}
+      <div class="day">
+        <h3><time datetime="{{.ISO}}">{{.Label}}</time></h3>
+        <ol>
+          {{- $iso := .ISO}}
+          {{- range .Slots}}
+          <li><time datetime="{{$iso}}T{{.Time}}">{{.Time}}</time> <span>{{.Title}} <small>{{.Room}}</small></span></li>
+          {{- end}}
+        </ol>
+      </div>
+      {{- end}}
+    </div>
+    <p class="note">Times are East Africa Time. Rooms may change before the summit.</p>
   </div>
 </section>
 

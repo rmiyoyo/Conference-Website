@@ -45,3 +45,17 @@ if (picker) {
     answer.textContent = option && option.value ? describe(option) : '';
   });
 }
+
+const countdown = document.querySelector('.countdown');
+
+if (countdown) {
+  const start = new Date(`${countdown.dataset.start}T09:00:00+03:00`);
+  const days = Math.ceil((start - Date.now()) / 86400000);
+  if (days > 1) {
+    countdown.textContent = `${days} days to go`;
+    countdown.hidden = false;
+  } else if (days === 1) {
+    countdown.textContent = 'Starts tomorrow';
+    countdown.hidden = false;
+  }
+}

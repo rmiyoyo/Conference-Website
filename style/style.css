@@ -203,6 +203,66 @@ h3 {
   color: var(--red);
 }
 
+.when-where > div {
+  padding: 0.5rem 0.75rem;
+  background: rgb(241 241 241 / 85%);
+}
+
+.when-where .countdown {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--grey);
+}
+
+.schedule {
+  padding-block: 3.5rem;
+  background: var(--light);
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 2rem 3rem;
+}
+
+.day h3 {
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--red);
+}
+
+.day ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.day li {
+  display: flex;
+  gap: 1rem;
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.day li > time {
+  flex: none;
+  width: 3.25rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.day small {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--grey);
+}
+
+.schedule .note {
+  margin: 1.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--grey);
+}
+
 section > .wrap > h2 {
   margin: 0 0 2rem;
   font-size: 1.6rem;

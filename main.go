@@ -23,6 +23,7 @@ type page struct {
 var pages = []page{
 	{"index.html", "index.tmpl", "", "home"},
 	{"about_page.html", "about.tmpl", "About", "about"},
+	{"404.html", "404.tmpl", "Page not found", "missing"},
 }
 
 type view struct {
